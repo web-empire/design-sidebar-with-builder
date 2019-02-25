@@ -1,0 +1,15 @@
+.post-type-we-sidebar-builder .wp-list-table #title {
+    width: 30%;
+}
+
+.post-type-we-sidebar-builder .wp-list-table #we_sb_meta_shortcode {
+    width: 40%;
+}
+
+.post-type-we-sidebar-builder .wp-list-table .we_sb_meta_shortcode input.we-sb-shortcode-text {
+    width: 50%;
+}
+
+.post-type-we-sidebar-builder tr.type-we-sidebar-builder .row-actions {
+	position: unset;
+}
