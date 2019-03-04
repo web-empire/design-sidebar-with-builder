@@ -77,7 +77,7 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 				'show_in_admin_bar'   => true,
 				'exclude_from_search' => true,
 				'supports'            => array( 'title', 'editor' ),
-				'menu_position'       => 5,
+				'menu_position'       => 30,
             	'menu_icon'			  => 'dashicons-welcome-widgets-menus',
 				'capability_type'     => 'page',
 				'map_meta_cap'        => true,
@@ -150,7 +150,7 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 				case 'we_sb_meta_shortcode':
 
 					// Prepare unique shortcode for each sidebar post.
-						echo __( '<input class="we-sb-shortcode-text" type="text" value="[we-sb-shortcode-'. $post->ID .']" readonly>', 'we-sidebar-builder' );
+						echo __( '<input class="we-sb-shortcode-text" type="text" value="[we-sb-shortcode-'. $post->ID .']" readonly onfocus="this.select()" />', 'we-sidebar-builder' );
 					break;
 
 				default:
@@ -171,6 +171,7 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 				'title'                => __( 'Page Title', 'we-sidebar-builder' ),
 				'we_sb_meta_shortcode' => __( 'Shortcode', 'we-sidebar-builder' ),
 				'actions'              => __( 'Actions', 'we-sidebar-builder' ),
+				'date'				   => __( 'Date', 'we-sidebar-builder' ),
 			);
 
 			return $columns;
