@@ -219,28 +219,6 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 
 			return $default;
 		}
-
-		/**
-		 * Prints the sidebar content.
-		 */
-		public static function get_sidebar_content() {
-			echo self::$elementor_instance->frontend->get_builder_content_for_display( get_the_ID() );
-		}
-
-		/**
-		 * Display before footer markup.
-		 *
-		 * @since  1.0.2
-		 */
-		public function render_wesb_sidebar() {
-
-			?>
-				<div class="hfe-before-footer-wrap">
-					<?php self::get_sidebar_content(); ?>
-				</div>
-			<?php
-
-		}
 	}
 
 	$instance = new WE_SB_CustomPostType();
