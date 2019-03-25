@@ -3,11 +3,11 @@
 }
 
 .post-type-we-sidebar-builder .wp-list-table #we_sb_meta_shortcode {
-	width: 30%;
+	width: 35%;
 }
 
 .post-type-we-sidebar-builder .wp-list-table .we_sb_meta_shortcode input.we-sb-shortcode-text {
-    width: 60%;
+    width: 78%;
 }
 
 .post-type-we-sidebar-builder tr.type-we-sidebar-builder .row-actions {

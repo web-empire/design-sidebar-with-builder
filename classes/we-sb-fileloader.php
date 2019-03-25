@@ -23,7 +23,17 @@ if ( ! class_exists( 'WE_SB_Fileloader' ) ) {
 		 * @since 1.0.0
 		 */
 		public function __construct() {
+			$this->load_textdomain();
 			$this->we_sb_run_loader();
+		}
+
+		/**
+		 * Loads textdomain for the plugin.
+		 *
+		 * @since 1.0.0
+		 */
+		public function load_textdomain() {
+			load_plugin_textdomain( 'we-sidebar-builder' );
 		}
 
 		/**
@@ -33,6 +43,7 @@ if ( ! class_exists( 'WE_SB_Fileloader' ) ) {
 		 */
 		public function we_sb_run_loader() {
 			require_once WE_SIDEBAR_PLUGIN_DIR . '/classes/class-sidebar-builder-cpt.php';
+			require_once WE_SIDEBAR_PLUGIN_DIR . '/classes/class-sidebar-builder-helper.php';
 		}
 	}
 	

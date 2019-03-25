@@ -31,6 +31,8 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 			// Add required action.
 			add_action( 'init', array( $this , 'sidebar_builder_register_cpt' ) );
 
+			add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 50 );
+
 			// Add Elementor's support for Sidebar Builder CPT.
 			add_action( 'admin_init', array( $this , 'we_sb_elementor_support' ) );
 
@@ -69,16 +71,15 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 
 			$args = array(
 				'labels'              => $labels,
-				'show_in_menu'        => true,
+				'show_in_menu'        => false,
 				'public'              => true,
 				'show_ui'             => true,
 				'query_var'           => true,
 				'can_export'          => true,
 				'show_in_admin_bar'   => true,
 				'exclude_from_search' => true,
-				'supports'            => array( 'title', 'editor' ),
+				'supports'            => array( 'title', 'thumbnail', 'elementor' ),
 				'menu_position'       => 30,
-            	'menu_icon'			  => 'dashicons-welcome-widgets-menus',
 				'capability_type'     => 'page',
 				'map_meta_cap'        => true,
 				'hierarchical'        => false,
@@ -92,6 +93,22 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 			// Enqueue required importing styles.
 			wp_enqueue_style( 'we-sb-admin-css', WE_SIDEBAR_PLUGIN_URL . 'assets/css/admin.css' );
  		}
+
+ 		/**
+		 * Register the admin menu for sidebar builder.
+		 *
+		 * @since  1.0.0
+		 * Moved the menu under Appearance -> Sidebar Builder
+		 */
+		public function register_admin_menu() {
+			add_submenu_page(
+				'themes.php',
+				__( 'Sidebar Builder', 'we-sidebar-builder' ),
+				__( 'Sidebar Builder', 'we-sidebar-builder' ),
+				'edit_pages',
+				'edit.php?post_type=we-sidebar-builder'
+			);
+		}
 
  		/**
 		 * Add Elementor support to custom post type by default
@@ -144,13 +161,18 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 		 */
 		public function we_sb_manage_columns_data( $column, $post_id ) {
 
-			global $post;
+			$current_post_meta = get_post_meta( $post_id );
+			$builder_identity_key = '';
+
+			if ( is_array( $current_post_meta ) && array_key_exists( '_elementor_version' , $current_post_meta ) && array_key_exists( '_elementor_edit_mode' , $current_post_meta ) ) {
+				$builder_identity_key = '_elementor_';
+			}
 
 			switch ( $column ) {
-				case 'we_sb_meta_shortcode':
+				case 'we_sb_shortcode':
 
 					// Prepare unique shortcode for each sidebar post.
-						echo __( '<input class="we-sb-shortcode-text" type="text" value="[we-sb-shortcode-'. $post->ID .']" readonly onfocus="this.select()" />', 'we-sidebar-builder' );
+						echo __( '<input class="we-sb-shortcode-text" type="text" value="[sidebar_builder'. $builder_identity_key .'design id='. $post_id .']" readonly onfocus="this.select()" />', 'we-sidebar-builder' );
 					break;
 
 				default:
@@ -169,7 +191,7 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 			$columns = array(
 				'cb'                   => '&lt;input type="checkbox" />',
 				'title'                => __( 'Page Title', 'we-sidebar-builder' ),
-				'we_sb_meta_shortcode' => __( 'Shortcode', 'we-sidebar-builder' ),
+				'we_sb_shortcode'      => __( 'Shortcode', 'we-sidebar-builder' ),
 				'actions'              => __( 'Actions', 'we-sidebar-builder' ),
 				'date'				   => __( 'Date', 'we-sidebar-builder' ),
 			);
@@ -192,6 +214,28 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 			}
 
 			return $default;
+		}
+
+		/**
+		 * Prints the sidebar content.
+		 */
+		public static function get_sidebar_content() {
+			echo self::$elementor_instance->frontend->get_builder_content_for_display( get_the_ID() );
+		}
+
+		/**
+		 * Display before footer markup.
+		 *
+		 * @since  1.0.2
+		 */
+		public function render_wesb_sidebar() {
+
+			?>
+				<div class="hfe-before-footer-wrap">
+					<?php self::get_sidebar_content(); ?>
+				</div>
+			<?php
+
 		}
 	}
 
