@@ -34,37 +34,19 @@ if ( ! class_exists( 'Sidebar_Builder_Helper' ) ) {
 
 				self::$elementor_instance = Elementor\Plugin::instance();
 
-				// Scripts and styles.
-				add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-
-				// Scripts and styles.
 				add_shortcode( 'sidebar_builder_elementor_design', array( $this, 'render_elementor_shortcode_template' ) );
-
-			} else {
-
-				add_action( 'admin_notices', array( $this, 'elementor_not_available' ) );
-				add_action( 'network_admin_notices', array( $this, 'elementor_not_available' ) );
 			}
+
+			if ( class_exists( 'FLBuilder' ) && is_callable( 'FLBuilderShortcodes::insert_layout' ) ) {
+
+				add_shortcode( 'sidebar_builder_beaver_design', array( $this, 'render_beaver_shortcode_template' ) );
+			}
+
+			add_shortcode( 'sidebar_builder_content_design', array( $this, 'render_content_shortcode_template' ) );
 		}
 
 		/**
-		 * Enqueue styles and scripts.
-		 */
-		public function enqueue_scripts() {
-
-			if ( class_exists( '\Elementor\Plugin' ) ) {
-				$elementor = \Elementor\Plugin::instance();
-				$elementor->frontend->enqueue_styles();
-			}
-
-			if ( class_exists( '\ElementorPro\Plugin' ) ) {
-				$elementor_pro = \ElementorPro\Plugin::instance();
-				$elementor_pro->enqueue_styles();
-			}
-		}
-
-		/**
-		 * Callback to shortcode.
+		 * Callback to shortcode for Elementor template.
 		 *
 		 * @param array $atts attributes for shortcode.
 		 */
@@ -92,6 +74,62 @@ if ( ! class_exists( 'Sidebar_Builder_Helper' ) ) {
 			}
 
 			return self::$elementor_instance->frontend->get_builder_content_for_display( $id );
+		}
+
+		/**
+		 * Callback to shortcode for Beaver Builder template.
+		 *
+		 * @param array $atts attributes for shortcode.
+		 */
+		public function render_beaver_shortcode_template( $atts ) {
+
+			$atts = shortcode_atts(
+				array(
+					'id' => '',
+				),
+				$atts,
+				'sidebar_builder_beaver_design'
+			);
+
+			$id = ! empty( $atts['id'] ) ? intval( $atts['id'] ) : '';
+
+			if ( empty( $id ) ) {
+				return '';
+			}
+
+			return FLBuilderShortcodes::insert_layout(
+				array(
+					'id' => $id,
+				)
+			);
+		}
+
+		/**
+		 * Callback to shortcode for content template.
+		 *
+		 * @param array $atts attributes for shortcode.
+		 */
+		public function render_content_shortcode_template( $atts ) {
+
+			$atts = shortcode_atts(
+				array(
+					'id' => '',
+				),
+				$atts,
+				'sidebar_builder_content_design'
+			);
+
+			$id = ! empty( $atts['id'] ) ? intval( $atts['id'] ) : '';
+
+			if ( empty( $id ) ) {
+				return '';
+			}
+
+			$post_content = get_post( $id );
+			$content = $post_content->post_content;
+			$content_markup = do_shortcode( $content );
+
+			return $content_markup;
 		}
 	}
 

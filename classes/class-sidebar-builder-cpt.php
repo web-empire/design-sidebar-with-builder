@@ -78,7 +78,7 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 				'can_export'          => true,
 				'show_in_admin_bar'   => true,
 				'exclude_from_search' => true,
-				'supports'            => array( 'title', 'thumbnail', 'elementor' ),
+				'supports'            => array( 'title', 'editor', 'thumbnail', 'elementor' ),
 				'menu_position'       => 30,
 				'capability_type'     => 'page',
 				'map_meta_cap'        => true,
@@ -166,6 +166,10 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 
 			if ( is_array( $current_post_meta ) && array_key_exists( '_elementor_version' , $current_post_meta ) && array_key_exists( '_elementor_edit_mode' , $current_post_meta ) ) {
 				$builder_identity_key = '_elementor_';
+			} elseif ( is_array( $current_post_meta ) && array_key_exists( '_fl_builder_data' , $current_post_meta ) && array_key_exists( '_fl_builder_enabled' , $current_post_meta ) ) {
+				$builder_identity_key = '_beaver_';
+			} else {
+				$builder_identity_key = '_content_';
 			}
 
 			switch ( $column ) {
