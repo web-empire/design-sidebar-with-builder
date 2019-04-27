@@ -1,4 +1,4 @@
-=== WebEmpire's Sidebar Builder ===
+=== Design Sidebar Using Page Builder ===
 Contributors: webempire
 Tags: sidebar, page builder
 Requires at least: 4.4
@@ -18,6 +18,8 @@ The plugin is useful to edit and design the sidebar of your site without sacrifi
 
 1. Upload `we-coming-soon.zip` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Under Appearance > Sidebar Builder create templates
+4. From Widget's page can add `Sidebar Template Libarary` widget to your main sidebar
 
 == Changelog ==
 Version 1.0.0

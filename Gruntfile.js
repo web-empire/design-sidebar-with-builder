@@ -39,7 +39,7 @@ module.exports = function (grunt) {
         compress: {
             main: {
                 options: {
-                    archive: 'sidebar-using-page-builder.zip',
+                    archive: 'design-sidebar-with-page-builder.zip',
                     mode: 'zip'
                 },
                 files: [
@@ -55,7 +55,7 @@ module.exports = function (grunt) {
 
         clean: {
             main: ["sidebar-using-page-builder"],
-            zip: ["sidebar-using-page-builder.zip"],
+            zip: ["design-sidebar-with-page-builder.zip"],
         },
 
         makepot: {
