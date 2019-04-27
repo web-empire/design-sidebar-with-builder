@@ -1,13 +1,5 @@
 .post-type-we-sidebar-builder .wp-list-table #title {
-    width: 15%;
-}
-
-.post-type-we-sidebar-builder .wp-list-table #we_sb_meta_shortcode {
-	width: 40%;
-}
-
-.post-type-we-sidebar-builder input.we-sb-shortcode-text {
-    width: 80% !important;
+    width: 33%;
 }
 
 .post-type-we-sidebar-builder tr.type-we-sidebar-builder .row-actions {

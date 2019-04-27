@@ -1,6 +1,6 @@
 <?php
 /* 
- *	Plugin Name: Sidebar Builder
+ *	Plugin Name: Design Sidebar Using Page Builder
 	Plugin URI: #
 	Description: The plugin is useful to edit and design the sidebar of your site without sacrificing your favorite page builder.
 	Version: 1.0.0

@@ -24,7 +24,11 @@ if ( ! class_exists( 'WE_SB_Fileloader' ) ) {
 		 */
 		public function __construct() {
 			$this->load_textdomain();
-			$this->we_sb_run_loader();
+
+			require_once WE_SIDEBAR_PLUGIN_DIR . '/classes/class-sidebar-builder-cpt.php';
+			require_once WE_SIDEBAR_PLUGIN_DIR . '/classes/class-sidebar-builder-helper.php';
+			require_once WE_SIDEBAR_PLUGIN_DIR . '/classes/class-template-library-widget.php';
+			add_action( 'widgets_init', array( $this, 'register_template_library_widget' ) );
 		}
 
 		/**
@@ -37,13 +41,12 @@ if ( ! class_exists( 'WE_SB_Fileloader' ) ) {
 		}
 
 		/**
-		 * Run file loader
+		 * Regiter Template Library widget
 		 *
-		 * @since 1.0.0
+		 * @return void
 		 */
-		public function we_sb_run_loader() {
-			require_once WE_SIDEBAR_PLUGIN_DIR . '/classes/class-sidebar-builder-cpt.php';
-			require_once WE_SIDEBAR_PLUGIN_DIR . '/classes/class-sidebar-builder-helper.php';
+		function register_template_library_widget() {
+			register_widget( 'Sidebar_Template_Library' );
 		}
 	}
 	

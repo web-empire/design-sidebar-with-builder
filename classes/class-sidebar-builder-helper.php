@@ -33,34 +33,20 @@ if ( ! class_exists( 'Sidebar_Builder_Helper' ) ) {
 			if ( defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ) {
 
 				self::$elementor_instance = Elementor\Plugin::instance();
-
-				add_shortcode( 'sidebar_builder_elementor_design', array( $this, 'render_elementor_shortcode_template' ) );
 			}
-
-			if ( class_exists( 'FLBuilder' ) && is_callable( 'FLBuilderShortcodes::insert_layout' ) ) {
-
-				add_shortcode( 'sidebar_builder_beaver_design', array( $this, 'render_beaver_shortcode_template' ) );
-			}
-
-			add_shortcode( 'sidebar_builder_content_design', array( $this, 'render_content_shortcode_template' ) );
 		}
 
 		/**
-		 * Callback to shortcode for Elementor template.
+		 * Callback to template for Elementor template.
 		 *
-		 * @param array $atts attributes for shortcode.
+		 * @param array $id attributes for template.
 		 */
-		public function render_elementor_shortcode_template( $atts ) {
+		public function render_elementor_shortcode_template( $id ) {
 
-			$atts = shortcode_atts(
-				array(
-					'id' => '',
-				),
-				$atts,
-				'sidebar_builder_elementor_design'
-			);
+			if ( ! defined( 'ELEMENTOR_VERSION' ) && ! is_callable( 'Elementor\Plugin::instance' ) ) {
 
-			$id = ! empty( $atts['id'] ) ? intval( $atts['id'] ) : '';
+				return;
+			}
 
 			if ( empty( $id ) ) {
 				return '';
@@ -77,21 +63,15 @@ if ( ! class_exists( 'Sidebar_Builder_Helper' ) ) {
 		}
 
 		/**
-		 * Callback to shortcode for Beaver Builder template.
+		 * Callback to template for Beaver Builder template.
 		 *
-		 * @param array $atts attributes for shortcode.
+		 * @param array $id attributes for template.
 		 */
-		public function render_beaver_shortcode_template( $atts ) {
+		public function render_beaver_shortcode_template( $id ) {
 
-			$atts = shortcode_atts(
-				array(
-					'id' => '',
-				),
-				$atts,
-				'sidebar_builder_beaver_design'
-			);
-
-			$id = ! empty( $atts['id'] ) ? intval( $atts['id'] ) : '';
+			if ( ! class_exists( 'FLBuilder' ) && ! is_callable( 'FLBuilderShortcodes::insert_layout' ) ) {
+				return;
+			}
 
 			if ( empty( $id ) ) {
 				return '';
@@ -105,21 +85,11 @@ if ( ! class_exists( 'Sidebar_Builder_Helper' ) ) {
 		}
 
 		/**
-		 * Callback to shortcode for content template.
+		 * Callback to template for content template.
 		 *
-		 * @param array $atts attributes for shortcode.
+		 * @param int $id attributes for template.
 		 */
-		public function render_content_shortcode_template( $atts ) {
-
-			$atts = shortcode_atts(
-				array(
-					'id' => '',
-				),
-				$atts,
-				'sidebar_builder_content_design'
-			);
-
-			$id = ! empty( $atts['id'] ) ? intval( $atts['id'] ) : '';
+		public function render_content_shortcode_template( $id ) {
 
 			if ( empty( $id ) ) {
 				return '';
@@ -130,6 +100,33 @@ if ( ! class_exists( 'Sidebar_Builder_Helper' ) ) {
 			$content_markup = do_shortcode( $content );
 
 			return $content_markup;
+		}
+
+		/**
+		 * Callback to render template.
+		 *
+		 * @param array $id attributes for shortcode.
+		 */
+		public function render_template( $id ) {
+
+			if ( empty( $id ) ) {
+				return '';
+			}
+
+			$post_meta = array();
+			$post_meta = get_post_meta( $id );
+
+			$markup = '';
+
+			if ( is_array( $post_meta ) && array_key_exists( '_elementor_version' , $post_meta ) && array_key_exists( '_elementor_edit_mode' , $post_meta ) ) {
+				$markup = $this->render_elementor_shortcode_template( $id );
+			} elseif ( is_array( $post_meta ) && array_key_exists( '_fl_builder_data' , $post_meta ) && array_key_exists( '_fl_builder_enabled' , $post_meta ) ) {
+				$markup = $this->render_beaver_shortcode_template( $id );
+			} else {
+				$markup = $this->render_content_shortcode_template( $id );
+			}
+
+			return $markup;
 		}
 	}
 

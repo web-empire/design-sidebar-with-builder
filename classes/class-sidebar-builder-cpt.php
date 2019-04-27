@@ -42,9 +42,6 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 			// Add custom column to edit CPT page.
 			add_filter( 'manage_edit-we-sidebar-builder_columns', array ( $this , 'we_sb_custom_columns' ) );
 
-			// Manage columns from edit CPT page.
-			add_action( 'manage_we-sidebar-builder_posts_custom_column', array ( $this , 'we_sb_manage_columns_data' ), 10, 2 );
-
 			// Manage post actions.
 			add_filter( 'list_table_primary_column', array ( $this , 'list_table_primary_column' ), 10, 2 );
 	    }
@@ -57,16 +54,16 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 		 */
 		public function sidebar_builder_register_cpt() {
 			$labels = array(
-				'name'          => esc_html_x( 'Sidebar Builder', 'flow general name', 'we-sidebar-builder' ),
-				'singular_name' => esc_html_x( 'Sidebar', 'flow singular name', 'we-sidebar-builder' ),
-				'search_items'  => esc_html__( 'Search Sidebar', 'we-sidebar-builder' ),
-				'all_items'     => esc_html__( 'Sidebar Page', 'we-sidebar-builder' ),
-				'edit_item'     => esc_html__( 'Edit Sidebar', 'we-sidebar-builder' ),
-				'view_item'     => esc_html__( 'View Sidebar', 'we-sidebar-builder' ),
-				'add_new'       => esc_html__( 'Add New', 'we-sidebar-builder' ),
-				'update_item'   => esc_html__( 'Update Sidebar', 'we-sidebar-builder' ),
-				'add_new_item'  => esc_html__( 'Add New Sidebar', 'we-sidebar-builder' ),
-				'new_item_name' => esc_html__( 'New Sidebar', 'we-sidebar-builder' ),
+				'name'          => esc_html_x( 'Sidebar Builder', 'flow general name', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'singular_name' => esc_html_x( 'Sidebar', 'flow singular name', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'search_items'  => esc_html__( 'Search Sidebar', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'all_items'     => esc_html__( 'Sidebar Page', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'edit_item'     => esc_html__( 'Edit Sidebar', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'view_item'     => esc_html__( 'View Sidebar', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'add_new'       => esc_html__( 'Add New', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'update_item'   => esc_html__( 'Update Sidebar', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'add_new_item'  => esc_html__( 'Add New Sidebar', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'new_item_name' => esc_html__( 'New Sidebar', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
 			);
 
 			$args = array(
@@ -103,8 +100,8 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 		public function register_admin_menu() {
 			add_submenu_page(
 				'themes.php',
-				__( 'Sidebar Builder', 'we-sidebar-builder' ),
-				__( 'Sidebar Builder', 'we-sidebar-builder' ),
+				__( 'Sidebar Builder', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				__( 'Sidebar Builder', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
 				'edit_pages',
 				'edit.php?post_type=we-sidebar-builder'
 			);
@@ -152,39 +149,6 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 		}
 
 		/**
-		 * Manage custom column's data to post type page
-		 *
-		 * @param $column for new column.
-		 * @param $post_id for each post.
-		 * @since 1.0.0
-		 * @return void
-		 */
-		public function we_sb_manage_columns_data( $column, $post_id ) {
-
-			$current_post_meta = get_post_meta( $post_id );
-			$builder_identity_key = '';
-
-			if ( is_array( $current_post_meta ) && array_key_exists( '_elementor_version' , $current_post_meta ) && array_key_exists( '_elementor_edit_mode' , $current_post_meta ) ) {
-				$builder_identity_key = '_elementor_';
-			} elseif ( is_array( $current_post_meta ) && array_key_exists( '_fl_builder_data' , $current_post_meta ) && array_key_exists( '_fl_builder_enabled' , $current_post_meta ) ) {
-				$builder_identity_key = '_beaver_';
-			} else {
-				$builder_identity_key = '_content_';
-			}
-
-			switch ( $column ) {
-				case 'we_sb_shortcode':
-
-					// Prepare unique shortcode for each sidebar post.
-						echo __( '<input class="we-sb-shortcode-text" type="text" value="[sidebar_builder'. $builder_identity_key .'design id='. $post_id .']" readonly onfocus="this.select()" />', 'we-sidebar-builder' );
-					break;
-
-				default:
-					break;
-			}
-		}
-
-		/**
 		 * Create custom columns to post type
 		 *
 		 * @since 1.0.0
@@ -194,10 +158,9 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 
 			$columns = array(
 				'cb'                   => '&lt;input type="checkbox" />',
-				'title'                => __( 'Page Title', 'we-sidebar-builder' ),
-				'we_sb_shortcode'      => __( 'Shortcode', 'we-sidebar-builder' ),
-				'actions'              => __( 'Actions', 'we-sidebar-builder' ),
-				'date'				   => __( 'Date', 'we-sidebar-builder' ),
+				'title'                => __( 'Page Title', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'actions'              => __( 'Actions', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'date'				   => __( 'Date', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
 			);
 
 			return $columns;

@@ -1,0 +1,28 @@
+{
+  "name": "Sidebar_Using_Page_Builder",
+  "version": "1.0.0",
+  "description": "Sidebar Using Page Builder",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "phpcs": "vendor/bin/phpcs"
+  },
+  "dependencies": {
+    "grunt": "~0.4.5",
+    "moment-timezone": "^0.5.14"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-compress": "^1.4.3",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-release": "^0.14.0",
+    "grunt-wp-i18n": "^1.0.2",
+    "shelljs": "~0.8.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imnavanath/sidebar-using-page-builder"
+  },
+  "author": "Navanath Bhosale",
+  "license": "ISC"
+}
