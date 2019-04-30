@@ -1,10 +1,10 @@
 === Design Sidebar Using Page Builder ===
 Contributors: webempire
-Tags: sidebar, page builder
+Tags: sidebar, page builder, elementor, beaver builder, sidebar using page builder, astra, wordpress sidebar
 Requires at least: 4.4
 Requires PHP: 5.6
-Tested up to: 5.1
-Stable tag: 1.1.0.1
+Tested up to: 5.1.1
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 

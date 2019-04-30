@@ -4,6 +4,7 @@
 	Description: The plugin is useful to edit and design the sidebar of your site without sacrificing your favorite page builder.
 	Version: 1.0.0
 	Author: WebEmpire
+	Author URI: https://profiles.wordpress.org/webempire/
 	Text Domain: we-sidebar-builder
 	License: GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  *
