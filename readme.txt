@@ -46,7 +46,7 @@ The plugin works best with these page builders -
 
 == Installation ==
 
-1. Upload `we-coming-soon.zip` to the `/wp-content/plugins/` directory
+1. Upload `design-sidebar-with-page-builder.zip` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Under Appearance > Sidebar Builder create templates
 4. From Widget's page can add `Sidebar Template Libarary` widget to your main sidebar
