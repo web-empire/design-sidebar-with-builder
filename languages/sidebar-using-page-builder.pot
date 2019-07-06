@@ -2,7 +2,7 @@
 # This file is distributed under the GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html.
 msgid ""
 msgstr ""
-"Project-Id-Version: Design Sidebar Using Page Builder 1.0.0\n"
+"Project-Id-Version: Reusable Blocks - Elementor, Beaver Builder, WP Editor 1.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/design-sidebar-with-builder\n"
 "POT-Creation-Date: 2019-04-27 19:05:24+00:00\n"
@@ -95,7 +95,7 @@ msgid "Select"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "Design Sidebar Using Page Builder"
+msgid "Reusable Blocks - Elementor, Beaver Builder, WP Editor"
 msgstr ""
 
 #. Author URI of the plugin/theme

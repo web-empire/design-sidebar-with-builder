@@ -37,7 +37,13 @@ if ( ! class_exists( 'WE_SB_Fileloader' ) ) {
 		 * @since 1.0.0
 		 */
 		public function load_textdomain() {
-			load_plugin_textdomain( 'we-sidebar-builder' );
+			/**
+			 * Filters the languages directory path to use for Social Elementor.
+			 *
+			 * @param string $lang_dir The languages directory path.
+			 */
+			$lang_dir = apply_filters( 'reusable_blocks_textdomain', WE_REUSABLE_BLOCKS_ROOT . '/languages/' );
+			load_plugin_textdomain( 'sidebar-using-page-builder', false, $lang_dir );
 		}
 
 		/**

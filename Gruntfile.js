@@ -32,7 +32,7 @@ module.exports = function (grunt) {
                     '!package-lock.json',
                     '!phpcs.xml.dist',
                 ],
-                dest: 'sidebar-using-page-builder/'
+                dest: 'design-sidebar-with-builder/'
             }
         },
 
@@ -45,7 +45,7 @@ module.exports = function (grunt) {
                 files: [
                     {
                         src: [
-                            './sidebar-using-page-builder/**'
+                            './design-sidebar-with-builder/**'
                         ]
 
                     }
@@ -54,7 +54,7 @@ module.exports = function (grunt) {
         },
 
         clean: {
-            main: ["sidebar-using-page-builder"],
+            main: ["design-sidebar-with-builder"],
             zip: ["design-sidebar-with-page-builder.zip"],
         },
 
@@ -62,7 +62,7 @@ module.exports = function (grunt) {
             target: {
                 options: {
                     domainPath: '/',
-                    mainFile: 'sidebar-using-page-builder.php',
+                    mainFile: 'design-sidebar-with-builder.php',
                     potFilename: 'languages/sidebar-using-page-builder.pot',
                     potHeaders: {
                         poedit: true,
@@ -73,6 +73,14 @@ module.exports = function (grunt) {
                 }
             }
         },
+
+        wp_readme_to_markdown: {
+			your_target: {
+				files: {
+					"README.md": "readme.txt"
+				}
+			},
+		},
         
         addtextdomain: {
             options: {
@@ -80,7 +88,7 @@ module.exports = function (grunt) {
             },
             target: {
                 files: {
-                    src: ['*.php', '**/*.php', '!node_modules/**', '!php-tests/**', '!bin/**', '!asset/bsf-core/**']
+                    src: ['*.php', '**/*.php', '!node_modules/**', '!php-tests/**', '!bin/**']
                 }
             }
         }
@@ -90,6 +98,12 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-wp-i18n');
+
+    /* Read File Generation task */
+    grunt.loadNpmTasks("grunt-wp-readme-to-markdown");
+    
+    // Generate Read me file
+	grunt.registerTask( "readme", ["wp_readme_to_markdown"] );
 
     grunt.registerTask('i18n', ['addtextdomain', 'makepot']);
     grunt.registerTask('release', ['clean:zip', 'copy', 'compress', 'clean:main']);

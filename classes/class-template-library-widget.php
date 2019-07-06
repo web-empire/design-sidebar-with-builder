@@ -57,7 +57,7 @@ if ( ! class_exists( 'Sidebar_Template_Library' ) ) :
 		function __construct() {
 			parent::__construct(
 				$this->id_base,
-				__( 'Sidebar Template Library', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				__( 'Reusable Template Library', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
 				array(
 					'classname'   => $this->id_base,
 				),
@@ -159,7 +159,7 @@ if ( ! class_exists( 'Sidebar_Template_Library' ) ) :
 		function update( $new_instance, $old_instance ) {
 			$instance = [];
 			$instance = wp_parse_args( $new_instance, $old_instance );
-			$instance['template_id'] = $new_instance['template_id'];
+			$instance['template_id'] = ( isset( $new_instance['template_id'] ) ) ? $new_instance['template_id'] : '';
 
 			return $instance;
 		}

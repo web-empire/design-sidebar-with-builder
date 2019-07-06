@@ -54,16 +54,16 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 		 */
 		public function sidebar_builder_register_cpt() {
 			$labels = array(
-				'name'          => esc_html_x( 'Sidebar Builder', 'flow general name', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
-				'singular_name' => esc_html_x( 'Sidebar', 'flow singular name', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
-				'search_items'  => esc_html__( 'Search Sidebar', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
-				'all_items'     => esc_html__( 'Sidebar Page', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
-				'edit_item'     => esc_html__( 'Edit Sidebar', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
-				'view_item'     => esc_html__( 'View Sidebar', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'name'          => esc_html_x( 'Reusable Templates', 'template general name', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'singular_name' => esc_html_x( 'Template', 'template singular name', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'search_items'  => esc_html__( 'Search Template', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'all_items'     => esc_html__( 'Template Page', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'edit_item'     => esc_html__( 'Edit Template', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'view_item'     => esc_html__( 'View Template', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
 				'add_new'       => esc_html__( 'Add New', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
-				'update_item'   => esc_html__( 'Update Sidebar', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
-				'add_new_item'  => esc_html__( 'Add New Sidebar', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
-				'new_item_name' => esc_html__( 'New Sidebar', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'update_item'   => esc_html__( 'Update Template', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'add_new_item'  => esc_html__( 'Add New Template', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'new_item_name' => esc_html__( 'New Template', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
 			);
 
 			$args = array(
@@ -100,8 +100,8 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 		public function register_admin_menu() {
 			add_submenu_page(
 				'themes.php',
-				__( 'Sidebar Builder', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
-				__( 'Sidebar Builder', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				__( 'Reusable Templates', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				__( 'Reusable Templates', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
 				'edit_pages',
 				'edit.php?post_type=we-sidebar-builder'
 			);

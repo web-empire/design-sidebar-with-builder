@@ -1,8 +1,8 @@
 <?php
 /* 
- *	Plugin Name: Design Sidebar Using Page Builder
-	Description: The plugin is useful to edit and design the sidebar of your site without sacrificing your favorite page builder.
-	Version: 1.0.0
+ *	Plugin Name: Reusable Blocks - Elementor, Beaver Builder, WYSIWYG
+	Description: The plugin is useful for reuse the designed templates built using Beaver Builder, Elementor page builders. Also can reuse the WordPress editor's template. You can easily built your sidebar as well using <strong> Sidebar Template Library </strong> widget.
+	Version: 1.0.1
 	Author: WebEmpire
 	Author URI: https://profiles.wordpress.org/webempire/
 	Text Domain: we-sidebar-builder
@@ -16,11 +16,11 @@ if ( ! defined( 'WE_SIDEBAR_PLUGIN' ) ) {
 }
 
 if ( ! defined( 'WE_SIDEBAR_PLUGIN_VERSION' ) ) {
-	define( 'WE_SIDEBAR_PLUGIN_VERSION', '1.0.0' );
+	define( 'WE_SIDEBAR_PLUGIN_VERSION', '1.0.1' );
 }
 
 if ( ! defined( 'WE_SIDEBAR_PLUG_NAME' ) ) {
-	define( 'WE_SIDEBAR_PLUG_NAME', 'Sidebar Builder' );
+	define( 'WE_SIDEBAR_PLUG_NAME', 'Reusable Templates' );
 }
 
 if ( ! defined( 'WE_SIDEBAR_PLUG_SLUG' ) ) {
@@ -33,6 +33,14 @@ if ( ! defined( 'WE_SIDEBAR_PLUGIN_DIR' ) ) {
 
 if ( ! defined( 'WE_SIDEBAR_PLUGIN_URL' ) ) {
 	define( 'WE_SIDEBAR_PLUGIN_URL', plugins_url( '/', __FILE__ ) );
+}
+
+if ( ! defined( 'WE_REUSABLE_BLOCKS_BASE' ) ) {
+	define( 'WE_REUSABLE_BLOCKS_BASE', plugin_basename( WE_SIDEBAR_PLUGIN ) );
+}
+
+if ( ! defined( 'WE_REUSABLE_BLOCKS_ROOT' ) ) {
+	define( 'WE_REUSABLE_BLOCKS_ROOT', dirname( WE_REUSABLE_BLOCKS_BASE ) );
 }
 
 require_once WE_SIDEBAR_PLUGIN_DIR . '/classes/we-sb-fileloader.php';
