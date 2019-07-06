@@ -1,7 +1,7 @@
 <?php
 /* 
  *	Plugin Name: Reusable Blocks - Elementor, Beaver Builder, WYSIWYG
-	Description: The plugin is useful for reuse the designed templates built using Beaver Builder, Elementor page builders. Also can reuse the WordPress editor's template. You can easily built your sidebar as well using <strong> Sidebar Template Library </strong> widget.
+	Description: The plugin is useful for reuse the designed templates built using Beaver Builder, Elementor page builders. Also can reuse the WordPress editor's template. You can easily built your sidebar as well using <strong> Reusable Template Library </strong> widget.
 	Version: 1.0.1
 	Author: WebEmpire
 	Author URI: https://profiles.wordpress.org/webempire/

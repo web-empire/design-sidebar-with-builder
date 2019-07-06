@@ -34,8 +34,8 @@ You may now contribute to the plugin on Github: <a href="https://github.com/web-
 ## Screenshots ##
 
 1. Custom post type to design template 
-2. Backend sidebar with `Sidebar Template Library` widget
-3. Frontend sidebar design using `Sidebar Template Library` widget
+2. Backend sidebar with `Reusable Template Library` widget
+3. Frontend sidebar design using `Reusable Template Library` widget
 
 ## Frequently Asked Questions ##
 
@@ -48,7 +48,7 @@ You may now contribute to the plugin on Github: <a href="https://github.com/web-
 ### How does this plugin work ###
 
 1. Go to `Appearance -> Sidebar Builder` to build a Sidebar layout using your favurite page builder.
-1. After the layout is ready assign the layout as sidebar using the widget `Sidebar Template Library`
+1. After the layout is ready assign the layout as sidebar using the widget `Reusable Template Library`
 
 ## Installation ##
 

@@ -75,7 +75,7 @@ msgid "Date"
 msgstr ""
 
 #: classes/class-template-library-widget.php:60
-msgid "Sidebar Template Library"
+msgid "Reusable Template Library"
 msgstr ""
 
 #: classes/class-template-library-widget.php:121
