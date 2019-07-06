@@ -55,7 +55,7 @@ You may now contribute to the plugin on Github: <a href="https://github.com/web-
 1. Upload `design-sidebar-with-page-builder.zip` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Under Appearance > Sidebar Builder create templates
-4. From Widget's page can add `Sidebar Template Libarary` widget to your main sidebar or any section using widget
+4. From Widget's page can add `Reusable Template Library` widget to your main sidebar or any section using widget
 
 ## Changelog ##
 Version 1.0.0
