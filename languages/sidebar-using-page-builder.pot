@@ -1,15 +1,16 @@
-# Copyright (C) 2019 WebEmpire
+# Copyright (C) 2020 WebEmpire
 # This file is distributed under the GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html.
 msgid ""
 msgstr ""
-"Project-Id-Version: Reusable Blocks - Elementor, Beaver Builder, WP Editor 1.0.0\n"
+"Project-Id-Version: Reusable Blocks - Elementor, BB, WYSIWYG, Gutenberg "
+"1.1.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/design-sidebar-with-builder\n"
-"POT-Creation-Date: 2019-04-27 19:05:24+00:00\n"
+"POT-Creation-Date: 2020-04-26 06:19:40+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -26,19 +27,19 @@ msgstr ""
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
 #: classes/class-sidebar-builder-cpt.php:59
-msgid "Search Sidebar"
+msgid "Search Template"
 msgstr ""
 
 #: classes/class-sidebar-builder-cpt.php:60
-msgid "Sidebar Page"
+msgid "Template Page"
 msgstr ""
 
 #: classes/class-sidebar-builder-cpt.php:61
-msgid "Edit Sidebar"
+msgid "Edit Template"
 msgstr ""
 
 #: classes/class-sidebar-builder-cpt.php:62
-msgid "View Sidebar"
+msgid "View Template"
 msgstr ""
 
 #: classes/class-sidebar-builder-cpt.php:63
@@ -46,31 +47,31 @@ msgid "Add New"
 msgstr ""
 
 #: classes/class-sidebar-builder-cpt.php:64
-msgid "Update Sidebar"
+msgid "Update Template"
 msgstr ""
 
 #: classes/class-sidebar-builder-cpt.php:65
-msgid "Add New Sidebar"
+msgid "Add New Template"
 msgstr ""
 
 #: classes/class-sidebar-builder-cpt.php:66
-msgid "New Sidebar"
+msgid "New Template"
 msgstr ""
 
-#: classes/class-sidebar-builder-cpt.php:103
 #: classes/class-sidebar-builder-cpt.php:104
-msgid "Sidebar Builder"
-msgstr ""
-
-#: classes/class-sidebar-builder-cpt.php:161
-msgid "Page Title"
+#: classes/class-sidebar-builder-cpt.php:105
+msgid "Reusable Templates"
 msgstr ""
 
 #: classes/class-sidebar-builder-cpt.php:162
-msgid "Actions"
+msgid "Page Title"
 msgstr ""
 
 #: classes/class-sidebar-builder-cpt.php:163
+msgid "Actions"
+msgstr ""
+
+#: classes/class-sidebar-builder-cpt.php:164
 msgid "Date"
 msgstr ""
 
@@ -95,29 +96,31 @@ msgid "Select"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "Reusable Blocks - Elementor, Beaver Builder, WP Editor"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "#"
+msgid "Reusable Blocks - Elementor, BB, WYSIWYG, Gutenberg"
 msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"The plugin is useful to edit and design the sidebar of your site without "
-"sacrificing your favorite page builder."
+"The plugin is useful for reuse the designed templates built using Beaver "
+"Builder, Elementor page builders. Also you can reuse the WordPress editor's "
+"template along with Gutenberg support. You can easily built your sidebar or "
+"pages using <strong> Reusable Template Library </strong> widget."
 msgstr ""
 
 #. Author of the plugin/theme
 msgid "WebEmpire"
 msgstr ""
 
+#. Author URI of the plugin/theme
+msgid "https://profiles.wordpress.org/webempire/"
+msgstr ""
+
 #: classes/class-sidebar-builder-cpt.php:57
-msgctxt "flow general name"
-msgid "Sidebar Builder"
+msgctxt "template general name"
+msgid "Reusable Templates"
 msgstr ""
 
 #: classes/class-sidebar-builder-cpt.php:58
-msgctxt "flow singular name"
-msgid "Sidebar"
+msgctxt "template singular name"
+msgid "Template"
 msgstr ""

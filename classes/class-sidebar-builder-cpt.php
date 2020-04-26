@@ -29,24 +29,24 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 		public function __construct() {
 
 			// Add required action.
-			add_action( 'init', array( $this , 'sidebar_builder_register_cpt' ) );
+			add_action( 'init', array( $this, 'sidebar_builder_register_cpt' ) );
 
 			add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 50 );
 
 			// Add Elementor's support for Sidebar Builder CPT.
-			add_action( 'admin_init', array( $this , 'we_sb_elementor_support' ) );
+			add_action( 'admin_init', array( $this, 'we_sb_elementor_support' ) );
 
 			// Add BB's support for Sidebar Builder CPT.
-			add_filter( 'fl_builder_post_types', array( $this , 'we_sb_bb_support' ) );
+			add_filter( 'fl_builder_post_types', array( $this, 'we_sb_bb_support' ) );
 
 			// Add custom column to edit CPT page.
-			add_filter( 'manage_edit-we-sidebar-builder_columns', array ( $this , 'we_sb_custom_columns' ) );
+			add_filter( 'manage_edit-we-sidebar-builder_columns', array( $this, 'we_sb_custom_columns' ) );
 
 			// Manage post actions.
-			add_filter( 'list_table_primary_column', array ( $this , 'list_table_primary_column' ), 10, 2 );
-	    }
+			add_filter( 'list_table_primary_column', array( $this, 'list_table_primary_column' ), 10, 2 );
+		}
 
-	    /**
+		/**
 		 * Create custom post type
 		 *
 		 * @since 1.0.0
@@ -80,18 +80,19 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 				'capability_type'     => 'page',
 				'map_meta_cap'        => true,
 				'hierarchical'        => false,
-	            'show_in_nav_menus'   => true,
-	            'has_archive'         => true,
-	            'publicly_queryable'  => true,	           
+				'show_in_nav_menus'   => true,
+				'has_archive'         => true,
+				'show_in_rest'        => true,
+				'publicly_queryable'  => true,
 			);
 
 			register_post_type( 'we-sidebar-builder', $args );
 
 			// Enqueue required importing styles.
 			wp_enqueue_style( 'we-sb-admin-css', WE_SIDEBAR_PLUGIN_URL . 'assets/css/admin.css' );
- 		}
+		}
 
- 		/**
+		/**
 		 * Register the admin menu for sidebar builder.
 		 *
 		 * @since  1.0.0
@@ -107,7 +108,7 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 			);
 		}
 
- 		/**
+		/**
 		 * Add Elementor support to custom post type by default
 		 *
 		 * @since 1.0.0
@@ -122,7 +123,7 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 			if ( ! $cpt_support ) {
 
 				// create array of default supported post types.
-				$cpt_support = [ 'page', 'post', 'we-sidebar-builder' ];
+				$cpt_support = array( 'page', 'post', 'we-sidebar-builder' );
 
 				// write it to the database.
 				update_option( 'elementor_cpt_support', $cpt_support );
@@ -157,10 +158,10 @@ if ( ! class_exists( 'WE_SB_CustomPostType' ) ) {
 		public function we_sb_custom_columns() {
 
 			$columns = array(
-				'cb'                   => '&lt;input type="checkbox" />',
-				'title'                => __( 'Page Title', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
-				'actions'              => __( 'Actions', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
-				'date'				   => __( 'Date', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'cb'      => '&lt;input type="checkbox" />',
+				'title'   => __( 'Page Title', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'actions' => __( 'Actions', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
+				'date'    => __( 'Date', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
 			);
 
 			return $columns;

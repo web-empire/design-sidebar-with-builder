@@ -1,8 +1,8 @@
 <?php
-/* 
- *	Plugin Name: Reusable Blocks - Elementor, Beaver Builder, WYSIWYG
-	Description: The plugin is useful for reuse the designed templates built using Beaver Builder, Elementor page builders. Also can reuse the WordPress editor's template. You can easily built your sidebar as well using <strong> Reusable Template Library </strong> widget.
-	Version: 1.0.1
+/*
+ *	Plugin Name: Reusable Blocks - Elementor, BB, WYSIWYG, Gutenberg
+	Description: The plugin is useful for reuse the designed templates built using Beaver Builder, Elementor page builders. Also you can reuse the WordPress editor's template along with Gutenberg support. You can easily built your sidebar or pages using <strong> Reusable Template Library </strong> widget.
+	Version: 1.1.0
 	Author: WebEmpire
 	Author URI: https://profiles.wordpress.org/webempire/
 	Text Domain: we-sidebar-builder
@@ -16,7 +16,7 @@ if ( ! defined( 'WE_SIDEBAR_PLUGIN' ) ) {
 }
 
 if ( ! defined( 'WE_SIDEBAR_PLUGIN_VERSION' ) ) {
-	define( 'WE_SIDEBAR_PLUGIN_VERSION', '1.0.1' );
+	define( 'WE_SIDEBAR_PLUGIN_VERSION', '1.1.0' );
 }
 
 if ( ! defined( 'WE_SIDEBAR_PLUG_NAME' ) ) {

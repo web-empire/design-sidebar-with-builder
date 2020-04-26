@@ -62,7 +62,7 @@ module.exports = function (grunt) {
             target: {
                 options: {
                     domainPath: '/',
-                    mainFile: 'design-sidebar-with-builder.php',
+                    mainFile: 'sidebar-using-page-builder.php',
                     potFilename: 'languages/sidebar-using-page-builder.pot',
                     potHeaders: {
                         poedit: true,

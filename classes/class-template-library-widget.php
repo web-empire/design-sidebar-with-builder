@@ -59,7 +59,7 @@ if ( ! class_exists( 'Sidebar_Template_Library' ) ) :
 				$this->id_base,
 				__( 'Reusable Template Library', 'we-sidebar-builder', 'sidebar-using-page-builder' ),
 				array(
-					'classname'   => $this->id_base,
+					'classname' => $this->id_base,
 				),
 				array(
 					'id_base' => $this->id_base,
@@ -76,7 +76,7 @@ if ( ! class_exists( 'Sidebar_Template_Library' ) ) :
 		 */
 		function widget( $args, $instance ) {
 
-			$title        = apply_filters( 'widget_title', $instance['title'] );
+			$title = apply_filters( 'widget_title', $instance['title'] );
 
 			// Before Widget.
 			echo $args['before_widget'];
@@ -86,13 +86,13 @@ if ( ! class_exists( 'Sidebar_Template_Library' ) ) :
 
 			$sidebar_builder_helper = new Sidebar_Builder_Helper();
 
-			if( array_key_exists( 'template_id', $instance) ) {
+			if ( array_key_exists( 'template_id', $instance ) ) {
 				echo $sidebar_builder_helper->render_template( $instance['template_id'] );
 			}
 
 			// After Widget.
 			echo $args['after_widget'];
-		}		
+		}
 
 		/**
 		 * Widget Form
@@ -101,10 +101,10 @@ if ( ! class_exists( 'Sidebar_Template_Library' ) ) :
 		 * @return void
 		 */
 		public function form( $instance ) {
-			$default = [
-				'title' => '',
+			$default = array(
+				'title'       => '',
 				'template_id' => '',
-			];
+			);
 
 			$instance = array_merge( $default, $instance );
 
@@ -134,16 +134,18 @@ if ( ! class_exists( 'Sidebar_Template_Library' ) ) :
 					<option value="">— <?php _e( 'Select', 'we-sidebar-builder', 'sidebar-using-page-builder' ); ?> —</option>
 					<?php
 					foreach ( $templates as $template ) :
-						$selected = selected( $template->ID, $instance['template_id'] ); ?>
+						$selected = selected( $template->ID, $instance['template_id'] );
+						?>
 
-						<option value="<?php echo $template->ID; ?>" <?php echo $selected; ?> data-type="<?php echo esc_attr ( $template->post_type ); ?>">
+						<option value="<?php echo $template->ID; ?>" <?php echo $selected; ?> data-type="<?php echo esc_attr( $template->post_type ); ?>">
 							<?php
 								echo $template->post_title;
 							?>
 						</option>
 
 						<?php
-					endforeach; ?>
+					endforeach;
+					?>
 				</select>
 			</p>
 			<?php
@@ -157,8 +159,8 @@ if ( ! class_exists( 'Sidebar_Template_Library' ) ) :
 		 * @return array                Merged updated instance.
 		 */
 		function update( $new_instance, $old_instance ) {
-			$instance = [];
-			$instance = wp_parse_args( $new_instance, $old_instance );
+			$instance                = array();
+			$instance                = wp_parse_args( $new_instance, $old_instance );
 			$instance['template_id'] = ( isset( $new_instance['template_id'] ) ) ? $new_instance['template_id'] : '';
 
 			return $instance;
