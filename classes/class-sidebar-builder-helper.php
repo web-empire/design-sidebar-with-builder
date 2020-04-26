@@ -95,8 +95,8 @@ if ( ! class_exists( 'Sidebar_Builder_Helper' ) ) {
 				return '';
 			}
 
-			$post_content = get_post( $id );
-			$content = $post_content->post_content;
+			$post_content   = get_post( $id );
+			$content        = $post_content->post_content;
 			$content_markup = do_shortcode( $content );
 
 			return $content_markup;
@@ -118,9 +118,9 @@ if ( ! class_exists( 'Sidebar_Builder_Helper' ) ) {
 
 			$markup = '';
 
-			if ( is_array( $post_meta ) && array_key_exists( '_elementor_version' , $post_meta ) && array_key_exists( '_elementor_edit_mode' , $post_meta ) ) {
+			if ( is_array( $post_meta ) && array_key_exists( '_elementor_version', $post_meta ) && array_key_exists( '_elementor_edit_mode', $post_meta ) ) {
 				$markup = $this->render_elementor_shortcode_template( $id );
-			} elseif ( is_array( $post_meta ) && array_key_exists( '_fl_builder_data' , $post_meta ) && array_key_exists( '_fl_builder_enabled' , $post_meta ) ) {
+			} elseif ( is_array( $post_meta ) && array_key_exists( '_fl_builder_data', $post_meta ) && array_key_exists( '_fl_builder_enabled', $post_meta ) ) {
 				$markup = $this->render_beaver_shortcode_template( $id );
 			} else {
 				$markup = $this->render_content_shortcode_template( $id );

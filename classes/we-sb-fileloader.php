@@ -14,7 +14,7 @@ if ( ! class_exists( 'WE_SB_Fileloader' ) ) {
 	 * This class initializes WE_SB_Fileloader
 	 *
 	 * @class WE_SB_Fileloader
-	 */	
+	 */
 	class WE_SB_Fileloader {
 
 		/**
@@ -55,6 +55,6 @@ if ( ! class_exists( 'WE_SB_Fileloader' ) ) {
 			register_widget( 'Sidebar_Template_Library' );
 		}
 	}
-	
+
 	$instance = new WE_SB_Fileloader();
 }
