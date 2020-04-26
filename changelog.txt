@@ -4,3 +4,6 @@ Version 1.0.0
 Version 1.0.1
 * Renamed the plugin and core
 * Fixed: PHP notice with template_id while updating the widget
+
+Version 1.1.0
+* New: Provided Gutenberg editor support
